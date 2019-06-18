@@ -53,17 +53,20 @@ const initialState = {
 
 export default handleActions({
     [IMAGE_LODING_PENDING]: (state) => {
-        state.imageLoding = { status : 'started', error : null };
-        return state;
+        const bufferState = Object.assign({}, state);
+        bufferState.imageLoding = { status : 'started', error : null };
+        return bufferState;
     },
 
     [IMAGE_LODING_FULFILLE]: (state, action) => {
-        state.imageLoding = { status : action.payload, error : null };
-        return state;
+        const bufferState = Object.assign({}, state);
+        bufferState.imageLoding = { status : action.payload, error : null };
+        return bufferState;
     },
 
     [IMAGE_LODING_REJECTED]: (state, action) => {
-        state.imageLoding = { status : 'rejected', error : action.payload };
-        return state;
+        const bufferState = Object.assign({}, state);
+        bufferState.imageLoding = { status : 'rejected', error : action.payload };
+        return bufferState;
     }
 }, initialState);

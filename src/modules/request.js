@@ -27,6 +27,7 @@ export function imageLoding(page) {
                 });
             } else {
                 dispatch(imageList.addImage(data));
+                dispatch(imageList.incrementImageRenderCount());
 
                 dispatch({
                     type: IMAGE_LODING_FULFILLE,

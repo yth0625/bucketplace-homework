@@ -23,13 +23,13 @@ export default class ImageList extends React.PureComponent {
     }
 
     handleWheel(e) {
-        if (e.target.getBoundingClientRect().bottom <= window.innerHeight) {
+        if (document.body.getBoundingClientRect().bottom <= window.innerHeight && e.deltaY > 0 &&
+            this.props.requests.imageLoding.status !== 'end_page' && this.props.requests.imageLoding.status !== 'started') {
             this.props.imageLoding(this.state.pageNumber);
         }
     }
 
     render () {
-        console.log(this.props.imageList);
         const imageList = this.props.imageList.map(
             
             (image) => {

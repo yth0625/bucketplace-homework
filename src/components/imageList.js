@@ -45,6 +45,7 @@ export default class ImageList extends React.PureComponent {
                 imageList.push(
                     <Image key = {image.id}
                         {...image}
+                        scrapImage = {this.props.scrapImage}
                     />
                 );
             }

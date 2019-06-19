@@ -19,11 +19,13 @@ export default class ImageList extends React.PureComponent {
         super(props);
     
         this.state = {
-            pageNumber: 1
+            pageNumber: 1,
+            isScrap: false
         };
 
         this.props.imageLoding(this.state.pageNumber);
         this.handleWheel = this.handleWheel.bind(this);
+        this.handleScrapCheckbox = this.handleScrapCheckbox.bind(this);
     }
 
     handleWheel(e) {
@@ -38,22 +40,42 @@ export default class ImageList extends React.PureComponent {
         }
     }
 
+    handleScrapCheckbox() {
+        this.setState({
+            isScrap: !this.state.isScrap
+        });
+    }
+
     render () {
+        const isScrapButton = <input onClick= {this.handleScrapCheckbox} type = 'checkbox' value={this.state.isScrap}/>;
         let imageList = [];
             for (let index = 0; index < this.props.imageRenderCount; index++) {
                 const image = this.props.imageList[index];
-                imageList.push(
-                    <Image key = {image.id}
-                        {...image}
-                        scrapImage = {this.props.scrapImage}
-                    />
-                );
+                if (this.state.isScrap) {
+                    if (image.scrap) {
+                        imageList.push(
+                            <Image key = {image.id}
+                                {...image}
+                                scrapImage = {this.props.scrapImage}
+                            />
+                        );
+                    }
+                } else {
+                    imageList.push(
+                        <Image key = {image.id}
+                            {...image}
+                            scrapImage = {this.props.scrapImage}
+                        />
+                    );
+                }
             }
 
         return (
             <div
                 className = "ImageList" onWheel = {this.handleWheel}
             >
+                {isScrapButton}
+                <span>스크랩한 것만보기</span>
                 {imageList}
             </div>
         )

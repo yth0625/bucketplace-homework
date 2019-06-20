@@ -29,8 +29,9 @@ export default class ImageList extends React.PureComponent {
     }
 
     handleWheel(e) {
-        if (document.body.getBoundingClientRect().bottom <= window.innerHeight && e.deltaY > 0
-            && this.props.requests.imageLoding.status !== 'end_page') {
+        const imageLodingStatus = this.props.requests.imageLoding.status;
+        if (document.body.getBoundingClientRect().bottom <= window.innerHeight && e.deltaY > 0 &&
+            imageLodingStatus !== 'end_page' && (imageLodingStatus === 'not_started' || imageLodingStatus === 'fulfilled')) {
             if ( this.props.imageRenderCount + this.props.imageAppearNumber > this.props.imageList.length ) {
                 this.setState({pageNumber: this.state.pageNumber + 1}, () => {
                     this.props.imageLoding(this.state.pageNumber);

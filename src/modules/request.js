@@ -31,7 +31,7 @@ export function imageLoding(page) {
 
                 dispatch({
                     type: IMAGE_LODING_FULFILLE,
-                    payload: 'fulfilled_request'
+                    payload: 'fulfilled'
                 });
             }
         } catch (err) {

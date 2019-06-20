@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import Image from './Image';
 
+import viewAllImage from '../style/bt-checkbox-checked.svg';
+import viewScrapImage from '../style/bt-checkbox-unchecked.png';
+
 export default class ImageList extends React.PureComponent {
     static propTypes = {
         imageList: PropTypes.array.isRequired,
@@ -49,7 +52,18 @@ export default class ImageList extends React.PureComponent {
     }
 
     render () {
-        const isScrapButton = <input onClick= {this.handleScrapCheckbox} type = 'checkbox' value={this.state.isScrap}/>;
+        const isScrapButton = 
+            <div className ='IsScrapButton'>
+                <img 
+                    className = 'IsScrapButtonImage'
+                    onClick = {() => this.handleScrapCheckbox()}
+                    src={`${this.state.isScrap  ? viewAllImage : viewScrapImage}`}
+                    alt= 'scrap'
+                />
+                <span className ='IsScrapButtonText'>스크랩한 것만 보기</span>
+            </div>
+        
+
         let imageList = [];
             for (let index = 0; index < this.props.imageRenderCount; index++) {
                 const image = this.props.imageList[index];
@@ -73,12 +87,13 @@ export default class ImageList extends React.PureComponent {
             }
 
         return (
-            <div
-                className = "ImageList" onWheel = {this.handleWheel}
-            >
-                {isScrapButton}
-                <span>스크랩한 것만보기</span>
-                {imageList}
+            <div className = "Main" onWheel = {this.handleWheel}>
+                <div className = 'ImageScreen'>
+                    {isScrapButton}
+                    <div className = "ImageList">
+                        {imageList}
+                    </div>
+                </div>
             </div>
         )
     }

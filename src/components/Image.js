@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import onScrap from '../image/blue.svg';
-import offScrap from '../image/on-img.svg';
+import onScrap from '../style/blue.svg';
+import offScrap from '../style/on-img.svg';
 
 const Image = ({profileImageUrl, nickName, id, imageUrl, scrap, scrapImage}) => {
     return (
-        <div className = {'image' + id}>
-            <img src={profileImageUrl} alt=""/> 
-            {nickName}
-            <img src={imageUrl} alt="" />
-                <button onClick = {() => scrapImage(id)}>
-                    <img 
-                        src={`${scrap  ? onScrap : offScrap}`}
-                        alt= 'scrap'
-                />
-                </button>
+        <div className = 'ImageComponent'>
+            <div className = "ImageHeader">
+                <img className ='ProfileImage' src={profileImageUrl} alt="profileImage"/> 
+                <span className = 'NickName'>{nickName}</span>
+            </div>
+            <img className ='PictureImage' src={imageUrl} alt="pictureImage"/>
+            <img 
+                    onClick = {() => scrapImage(id)}
+                    className ='ScrapButton'
+                    src={`${scrap  ? onScrap : offScrap}`}
+                    alt= 'scrap'
+            />
+            
         </div>
     );
 };

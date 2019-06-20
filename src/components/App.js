@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ImageList from '../containers/imageListContainer.js';
+import './App.css';
 
 const App = () => {
     if (!localStorage.imageList) {

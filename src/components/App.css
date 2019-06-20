@@ -1,0 +1,97 @@
+@font-face { 
+    font-family : 'AppleSDGothicNeo';
+    src : url('../style/AppleSDGothicNeo.ttc');
+}
+
+.Main {
+    display: flex;
+    flex-direction: column;
+    max-width: 1256px;
+    background-color: #ffffff;
+    margin: 0 auto;
+}
+
+.ImageScreen {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 44px 30px 60px;
+}
+
+.ImageList{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.IsScrapButton {
+    display: flex;
+}
+
+.IsScrapButtonImage {
+    margin-right: 6px;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.IsScrapButtonText {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    width: 244px;
+    height: 19px;
+    font-family: AppleSDGothicNeo;
+    font-size: 15px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #424242;
+}
+
+.ImageComponent {
+    display: flex;
+    flex-direction: column;
+}
+
+.ImageHeader{
+    display: flex;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.ProfileImage {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.NickName {
+    margin-left: 10px;
+    margin-top: 8px;
+    width: 98px;
+    height: 19px;
+    font-family: AppleSDGothicNeo;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.27;
+    letter-spacing: normal;
+    color: rgba(0, 0, 0, 0.74);
+}
+
+.PictureImage {
+    width: 268px;
+    height: 268px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+
+.ScrapButton {
+    margin-top: -42px;
+    margin-left: 226px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}

@@ -84,9 +84,10 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background-size: 268px 268px;
     width: 268px;
     height: 268px;
+    background-size: cover;
+    background-position: center center;
     border-radius: 10px;
     margin-right: 20px;
 }
@@ -98,4 +99,20 @@
     width: 32px;
     height: 32px;
     object-fit: contain;
+}
+.Toast {
+    display: flex;
+    flex-direction: row;
+}
+
+.ToastImage {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.ToastText {
+    margin-left: 8px;
+    margin-top: 12px;
 }

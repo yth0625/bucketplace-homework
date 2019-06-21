@@ -81,6 +81,10 @@
 }
 
 .PictureImage {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-size: 268px 268px;
     width: 268px;
     height: 268px;
     border-radius: 10px;
@@ -89,8 +93,8 @@
 
 
 .ScrapButton {
-    margin-top: -42px;
-    margin-left: 226px;
+    margin-right: 10px;
+    margin-bottom: 10px;
     width: 32px;
     height: 32px;
     object-fit: contain;

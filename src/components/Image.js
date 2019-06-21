@@ -11,13 +11,16 @@ const Image = ({profileImageUrl, nickName, id, imageUrl, scrap, scrapImage}) => 
                 <img className ='ProfileImage' src={profileImageUrl} alt="profileImage"/> 
                 <span className = 'NickName'>{nickName}</span>
             </div>
-            <img className ='PictureImage' src={imageUrl} alt="pictureImage"/>
-            <img 
-                    onClick = {() => scrapImage(id)}
-                    className ='ScrapButton'
-                    src={`${scrap  ? onScrap : offScrap}`}
-                    alt= 'scrap'
-            />
+            <div className = 'PictureImage' style={{backgroundImage: `url(${imageUrl})`}}>
+                <img 
+                        onClick = {() => scrapImage(id)}
+                        className ='ScrapButton'
+                        src={`${scrap  ? onScrap : offScrap}`}
+                        alt= 'scrap'
+                />
+            </div>
+            
+            
             
         </div>
     );
